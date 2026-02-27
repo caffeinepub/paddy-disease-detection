@@ -1,0 +1,133 @@
+{
+  "kind": "build_request",
+  "title": "Enhanced Disease Results: Treatment, Fertilizer & Farmer-Help Components",
+  "projectName": "PaddyScan",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "text": "Extend the backend disease database entries (Blast, Bacterial Blight, Brown Spot, Sheath Blight, Tungro) to include two new data fields per disease: (1) `fertilizers`: a list of recommended fertilizer names and application guidance specific to that disease condition, and (2) `preventionTips`: a list of actionable prevention and farm management tips. Update the Disease record type and all five existing disease entries accordingly. Expose these fields through the existing getDisease and getAllDiseases query functions.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "provide treatment and fertilizer give suggestions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each disease record in the Motoko actor contains a non-empty `fertilizers` array and a non-empty `preventionTips` array.",
+        "getDisease and getAllDiseases return the new fields alongside the existing name, description, and treatment fields.",
+        "All five diseases (Blast, Bacterial Blight, Brown Spot, Sheath Blight, Tungro) have distinct, agronomically relevant fertilizer and prevention data."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Update the DiseaseResult component and DetectionPage to render a Fertilizer Recommendations section after the treatment steps. Display each fertilizer recommendation as a styled card or list item showing the fertilizer name and application guidance, consistent with the earthy greens and amber agricultural theme.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "fertilizer give suggestions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A clearly labeled 'Fertilizer Recommendations' section appears in the result view after disease detection.",
+        "Each fertilizer item shows its name and application guidance.",
+        "Styling uses the existing earthy green and amber color tokens and matches the DiseaseResult component's visual style."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Add a Prevention Tips section to DiseaseResult displaying the disease-specific `preventionTips` list returned from the backend. Render each tip as a distinct item (e.g., checklist-style with a leaf or checkmark icon) to make it scannable for farmers.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "add any other components that help the farmers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 'Prevention Tips' section is rendered in the disease result view.",
+        "Each tip is displayed as a separate item with a visual indicator (icon or bullet).",
+        "Section is only shown when prevention tips data is available."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add a Seasonal & Weather Advisory card to the disease result view that provides general seasonal farming advice relevant to the detected disease (e.g., ideal planting windows, irrigation adjustments, weather conditions that exacerbate the disease). This content can be derived from static, disease-specific advisory text stored in the backend disease records as a new `seasonalAdvice` field.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "add any other components that help the farmers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend disease records include a `seasonalAdvice` text field for each of the five diseases.",
+        "A 'Seasonal Advisory' card is displayed in the result view showing the seasonal advice text.",
+        "Card is styled consistently with the agricultural theme."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Add a Disease Severity & Impact summary panel to the DiseaseResult component. For each disease, store and display a `severityLevel` (e.g., 'Low', 'Moderate', 'High', 'Critical') and a short `yieldImpact` description (estimated crop yield impact if untreated) in the backend. Render the severity as a color-coded badge and the yield impact as a brief text block in the results panel.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "add any other components that help the farmers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend disease records include `severityLevel` and `yieldImpact` fields for each disease.",
+        "The result view displays a severity badge color-coded by level (e.g., green for Low, amber for Moderate, red for High/Critical).",
+        "Yield impact description is displayed beneath or alongside the severity badge."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Add a Quick Action Tips banner to the DetectionPage result view, presenting 2–3 immediate actions a farmer should take upon detecting the disease (e.g., 'Isolate affected plants immediately', 'Apply fungicide within 24 hours'). Store these as a `quickActions` array per disease in the backend and render them as highlighted action chips or a prominent callout box styled in amber/warning tones to convey urgency.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "add any other components that help the farmers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend disease records include a `quickActions` array (2–3 items) per disease.",
+        "Quick actions are rendered as a visually distinct callout or chip group in the result view.",
+        "Styling uses amber/warning tones to convey urgency, consistent with the existing theme."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not change the existing simulateDetection logic or the disease detection mutation flow.",
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "All new backend fields must be added to the existing single Motoko actor in backend/main.mo; do not create new actors or modules.",
+    "All new UI sections must use the existing earthy greens and amber color tokens defined in the tailwind config and index.css."
+  ],
+  "nonGoals": [
+    "Real AI/ML-based disease detection — detection remains simulated.",
+    "GPS-based or map-based nearby agri-store locator (geolocation not supported).",
+    "Real-time weather API integration.",
+    "Any new authentication or user account features.",
+    "Modifying the image upload or validation flow."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

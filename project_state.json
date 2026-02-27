@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "A paddy disease detection website where users upload a crop image, AI detects the disease, and the app displays the disease name along with treatment recommendations, fertilizer suggestions, and additional farmer-helpful components.",
+  "architectural_notes": [
+    "Use an AI/ML model or API (e.g., plant disease classification model) to analyze uploaded crop images for paddy diseases",
+    "Frontend should support image file upload and display results clearly with disease name and treatments"
+  ],
+  "known_issues": [
+    "Disease detection only returns Bacterial Blight instead of varied diseases",
+    "Validation message text needs to be updated to 'Upload a valid paddy disease image'",
+    "Validation message for non-paddy/non-leaf images is still not displaying correctly after fix attempts"
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-an-image-upload-interface-where-users-can-drag-and-drop-or-click-to-select-a-crop-photo-display-a-preview-of-the-selected-image-before-submission-show-a-loading-indicator-while-the-disease-detection-is-processing",
+      "title": "Build an image upload interface where users can drag-and-drop or click to select a crop photo. Display a preview of the selected image before submission. Show a loading indicator while the disease detection is processing.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-disease-detection-completes-display-a-results-section-showing-the-detected-disease-name-a-description-and-detailed-treatment-recommendations-include-a-scan-another-button-to-reset-the-interface-for-a-new-upload",
+      "title": "After disease detection completes, display a results section showing the detected disease name, a description, and detailed treatment recommendations. Include a 'Scan Another' button to reset the interface for a new upload.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-cohesive-visual-theme-inspired-by-nature-and-agriculture-use-earthy-greens-and-warm-amber-golden-tones-clean-sans-serif-typography-and-a-layout-with-a-prominent-hero-upload-zone-apply-this-theme-consistently-across-all-pages-and-components",
+      "title": "Design a cohesive visual theme inspired by nature and agriculture: use earthy greens and warm amber/golden tones, clean sans-serif typography, and a layout with a prominent hero upload zone. Apply this theme consistently across all pages and components.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-imageuploader-component-and-detectionpage-flow-display-a-validation-message-upload-a-real-leaf-when-the-user-attempts-to-analyze-an-uploaded-image-that-is-not-recognized-as-a-paddy-leaf-image-the-message-should-appear-prominently-near-the-upload-zone-e-g-as-an-inline-error-below-the-drop-zone-or-as-a-highlighted-alert-styled-consistently-with-the-existing-agricultural-theme-earthy-greens-and-amber-tones-the-message-must-disappear-when-the-user-resets-or-selects-a-new-image",
+      "title": "In the ImageUploader component and DetectionPage flow, display a validation message 'Upload a real leaf' when the user attempts to analyze an uploaded image that is not recognized as a paddy/leaf image. The message should appear prominently near the upload zone (e.g., as an inline error below the drop zone or as a highlighted alert), styled consistently with the existing agricultural theme (earthy greens and amber tones). The message must disappear when the user resets or selects a new image.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-validation-message-displayed-when-a-non-paddy-image-is-uploaded-from-upload-a-real-leaf-to-upload-a-valid-paddy-disease-image-this-message-appears-in-the-imageuploader-component-and-is-triggered-via-the-isinvalidimage-prop-from-detectionpage-update-all-occurrences-of-the-old-message-text-across-the-codebase",
+      "title": "Update the validation message displayed when a non-paddy image is uploaded from 'Upload a real leaf' to 'Upload a valid paddy disease image'. This message appears in the ImageUploader component and is triggered via the `isInvalidImage` prop from DetectionPage. Update all occurrences of the old message text across the codebase.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-debug-and-fix-the-validation-flow-in-detectionpage-tsx-and-imageuploader-tsx-so-that-the-upload-a-valid-paddy-disease-image-message-is-reliably-displayed-when-the-user-uploads-and-attempts-to-analyze-an-image-that-is-not-recognized-as-a-paddy-leaf-image-trace-the-full-flow-from-the-backend-simulatedetection-sentinel-result-e-g-unknown-or-null-through-the-usedetectdisease-mutation-in-usequeries-ts-the-isinvalidimage-state-in-detectionpage-tsx-and-the-isinvalidimage-prop-passed-to-imageuploader-tsx-and-fix-any-broken-link-in-that-chain-that-prevents-the-message-from-appearing",
+      "title": "Debug and fix the validation flow in DetectionPage.tsx and ImageUploader.tsx so that the 'Upload a valid paddy disease image' message is reliably displayed when the user uploads and attempts to analyze an image that is not recognized as a paddy/leaf image. Trace the full flow from the backend simulateDetection sentinel result (e.g., 'UNKNOWN' or null) through the useDetectDisease mutation in useQueries.ts, the isInvalidImage state in DetectionPage.tsx, and the isInvalidImage prop passed to ImageUploader.tsx, and fix any broken link in that chain that prevents the message from appearing.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-diseaseresult-component-and-detectionpage-to-render-a-fertilizer-recommendations-section-after-the-treatment-steps-display-each-fertilizer-recommendation-as-a-styled-card-or-list-item-showing-the-fertilizer-name-and-application-guidance-consistent-with-the-earthy-greens-and-amber-agricultural-theme",
+      "title": "Update the DiseaseResult component and DetectionPage to render a Fertilizer Recommendations section after the treatment steps. Display each fertilizer recommendation as a styled card or list item showing the fertilizer name and application guidance, consistent with the earthy greens and amber agricultural theme.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-prevention-tips-section-to-diseaseresult-displaying-the-disease-specific-preventiontips-list-returned-from-the-backend-render-each-tip-as-a-distinct-item-e-g-checklist-style-with-a-leaf-or-checkmark-icon-to-make-it-scannable-for-farmers",
+      "title": "Add a Prevention Tips section to DiseaseResult displaying the disease-specific `preventionTips` list returned from the backend. Render each tip as a distinct item (e.g., checklist-style with a leaf or checkmark icon) to make it scannable for farmers.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-seasonal-weather-advisory-card-to-the-disease-result-view-that-provides-general-seasonal-farming-advice-relevant-to-the-detected-disease-e-g-ideal-planting-windows-irrigation-adjustments-weather-conditions-that-exacerbate-the-disease-this-content-can-be-derived-from-static-disease-specific-advisory-text-stored-in-the-backend-disease-records-as-a-new-seasonaladvice-field",
+      "title": "Add a Seasonal & Weather Advisory card to the disease result view that provides general seasonal farming advice relevant to the detected disease (e.g., ideal planting windows, irrigation adjustments, weather conditions that exacerbate the disease). This content can be derived from static, disease-specific advisory text stored in the backend disease records as a new `seasonalAdvice` field.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-disease-severity-impact-summary-panel-to-the-diseaseresult-component-for-each-disease-store-and-display-a-severitylevel-e-g-low-moderate-high-critical-and-a-short-yieldimpact-description-estimated-crop-yield-impact-if-untreated-in-the-backend-render-the-severity-as-a-color-coded-badge-and-the-yield-impact-as-a-brief-text-block-in-the-results-panel",
+      "title": "Add a Disease Severity & Impact summary panel to the DiseaseResult component. For each disease, store and display a `severityLevel` (e.g., 'Low', 'Moderate', 'High', 'Critical') and a short `yieldImpact` description (estimated crop yield impact if untreated) in the backend. Render the severity as a color-coded badge and the yield impact as a brief text block in the results panel.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-quick-action-tips-banner-to-the-detectionpage-result-view-presenting-2-3-immediate-actions-a-farmer-should-take-upon-detecting-the-disease-e-g-isolate-affected-plants-immediately-apply-fungicide-within-24-hours-store-these-as-a-quickactions-array-per-disease-in-the-backend-and-render-them-as-highlighted-action-chips-or-a-prominent-callout-box-styled-in-amber-warning-tones-to-convey-urgency",
+      "title": "Add a Quick Action Tips banner to the DetectionPage result view, presenting 2–3 immediate actions a farmer should take upon detecting the disease (e.g., 'Isolate affected plants immediately', 'Apply fungicide within 24 hours'). Store these as a `quickActions` array per disease in the backend and render them as highlighted action chips or a prominent callout box styled in amber/warning tones to convey urgency.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Image upload interface for users to upload crop photos",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "AI-based disease detection from uploaded crop image",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Display detected disease name and treatment recommendations to the user",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create a backend actor that stores a lookup table of common paddy diseases (e.g., Blast, Bacterial Blight, Brown Spot, Sheath Blight, Tungro) each with a name, description, and treatment recommendations. Expose a query function that accepts a disease key and returns the disease details.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement a simulated AI disease detection function in the backend that accepts a base64-encoded image string and returns a disease key by deterministically hashing or sampling the image data to simulate classification across the stored disease entries.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Show a validation message 'Upload a real leaf' if the uploaded image is not a paddy/leaf image",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update the backend simulateDetection function to return a distinct sentinel result (e.g., a null or a special 'UNKNOWN' disease key) when the simulated classification cannot match the image to any known paddy disease, allowing the frontend to differentiate between a valid detection and an invalid/non-paddy upload.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Fix validation message to show 'Upload a valid paddy disease image' (instead of 'Upload a real leaf') when a non-paddy image is uploaded",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Fix disease detection so it returns varied diseases (not only Bacterial Blight) — ensure all stored diseases can be detected",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Remove watermark from the website",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Fix the backend `simulateDetection` function so it returns varied diseases across all stored disease entries (Blast, Bacterial Blight, Brown Spot, Sheath Blight, Tungro), not only Bacterial Blight (index 1). The function should distribute results across all valid disease indices based on the input image data so each disease can realistically be detected.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Remove the watermark from the website. Locate and delete any watermark element, attribution badge, or overlay text that is rendered on top of or within the main page content (excluding the footer copyright line). This likely appears in the Layout component or DetectionPage.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "After disease detection, display detailed treatment recommendations, fertilizer suggestions, and additional farmer-helpful components (e.g., prevention tips, severity indicator, nearby agri-store locator, or seasonal advice) alongside the detected disease name and description.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Extend the backend disease database entries (Blast, Bacterial Blight, Brown Spot, Sheath Blight, Tungro) to include two new data fields per disease: (1) `fertilizers`: a list of recommended fertilizer names and application guidance specific to that disease condition, and (2) `preventionTips`: a list of actionable prevention and farm management tips. Update the Disease record type and all five existing disease entries accordingly. Expose these fields through the existing getDisease and getAllDiseases query functions.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Paddy Disease Detection",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

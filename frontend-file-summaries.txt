@@ -1,0 +1,11 @@
+{
+  "frontend/src/App.tsx": "Root application component that wraps DetectionPage inside the Layout component with a QueryClient provider.",
+  "frontend/src/hooks/useQueries.ts": "React Query mutation hook for disease detection that first performs client-side green-channel pixel analysis via a canvas to validate the image is a plant/leaf, returning `{ kind: 'invalid' }` immediately for non-leaf images, then calls `simulateDetection` with a deterministic disease index (1–5) for valid images and returns a `DetectionResult` union type.",
+  "frontend/src/hooks/useImageUpload.ts": "Custom hook managing image file selection state, drag-and-drop events, base64 conversion, preview URL generation, and reset functionality.",
+  "frontend/src/components/Layout.tsx": "Full-page layout shell with a forest-green header featuring the PaddyScan brand, and a footer with dynamic year and caffeine.ai attribution (no overlay watermarks).",
+  "frontend/src/components/ImageUploader.tsx": "Drag-and-drop image upload component with file preview, analyze button with loading spinner, and an `isInvalidImage` prop that renders an amber-styled \"Upload a valid paddy disease image\" warning banner below the drop zone.",
+  "frontend/src/components/DiseaseResult.tsx": "Enhanced disease results display card that shows detected disease name, color-coded severity badge (from backend data), yield impact warning, treatment steps, fertilizer recommendations, prevention tips checklist, seasonal advisory, a general farmer guidance panel, and a Quick Actions urgent banner — all driven by the new backend Disease fields.",
+  "frontend/src/pages/DetectionPage.tsx": "Main detection page orchestrating upload → analyze → results flow; now tracks `isInvalidImage` state, clears it on new file selection/drop/reset, and passes it to `ImageUploader` to show the validation message when a non-paddy image is detected.",
+  "frontend/src/index.css": "Global styles with OKLCH earthy green/amber color system, Inter + Outfit font imports, and custom animation keyframes.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with forest green and amber color tokens, Outfit/Inter font families, custom border radii, shadows, and animation keyframes."
+}

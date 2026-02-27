@@ -1,0 +1,84 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Enhanced Disease Results: Treatment, Fertilizer & Farmer-Help Components",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "summary": "Add Fertilizer Recommendations section to disease result view",
+      "acceptanceCriteria": [
+        "A clearly labeled 'Fertilizer Recommendations' section appears in the result view after disease detection.",
+        "Each fertilizer item shows its name and application guidance.",
+        "Styling uses the existing earthy green and amber color tokens and matches the DiseaseResult component's visual style."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DiseaseResult.tsx",
+          "operation": "modify",
+          "description": "Add a Fertilizer Recommendations section after the treatment steps section. Display each fertilizer from the disease.fertilizers array as a styled card or list item. Use earthy green and amber color tokens from the existing theme (e.g., bg-emerald-50, text-amber-800, border-green-200) to match the agricultural aesthetic. Render the section only when fertilizers data is available."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add Prevention Tips section with scannable checklist-style display",
+      "acceptanceCriteria": [
+        "A 'Prevention Tips' section is rendered in the disease result view.",
+        "Each tip is displayed as a separate item with a visual indicator (icon or bullet).",
+        "Section is only shown when prevention tips data is available."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DiseaseResult.tsx",
+          "operation": "modify",
+          "description": "Add a Prevention Tips section rendering the disease.preventionTips array. Display each tip as a checklist-style item with a leaf or checkmark icon (use lucide-react icons such as CheckCircle or Leaf). Style consistently with the earthy theme using green accent colors. Only render when preventionTips data is available."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Display Seasonal & Weather Advisory card in disease result view",
+      "acceptanceCriteria": [
+        "A 'Seasonal Advisory' card is displayed in the result view showing the seasonal advice text.",
+        "Card is styled consistently with the agricultural theme."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DiseaseResult.tsx",
+          "operation": "modify",
+          "description": "Add a Seasonal & Weather Advisory card that displays the disease.seasonalAdvice text field. Style as a distinct card using earthy green and amber tones (e.g., bg-amber-50, border-amber-200, text-green-900) to highlight the seasonal guidance. Only render when seasonalAdvice data is available."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Display Disease Severity & Impact summary panel with color-coded badge",
+      "acceptanceCriteria": [
+        "The result view displays a severity badge color-coded by level (e.g., green for Low, amber for Moderate, red for High/Critical).",
+        "Yield impact description is displayed beneath or alongside the severity badge."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DiseaseResult.tsx",
+          "operation": "modify",
+          "description": "Add a Disease Severity & Impact summary panel that renders the disease.severityLevel as a color-coded badge (green for Low, amber for Moderate, red for High/Critical using existing theme colors like bg-green-100/text-green-800, bg-amber-100/text-amber-800, bg-red-100/text-red-800). Display the disease.yieldImpact text beneath or alongside the badge. Only render when severity and impact data are available."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Add Quick Action Tips banner with urgent styling to disease result view",
+      "acceptanceCriteria": [
+        "Quick actions are rendered as a visually distinct callout or chip group in the result view.",
+        "Styling uses amber/warning tones to convey urgency, consistent with the existing theme."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DiseaseResult.tsx",
+          "operation": "modify",
+          "description": "Add a Quick Action Tips banner at the top of the disease result view (before other sections) that renders the disease.quickActions array. Display as a prominent callout box or chip group using amber/warning tones (e.g., bg-amber-100, border-amber-300, text-amber-900) to convey urgency. Use icons such as AlertCircle or Zap from lucide-react. Only render when quickActions data is available."
+        }
+      ]
+    }
+  ]
+}

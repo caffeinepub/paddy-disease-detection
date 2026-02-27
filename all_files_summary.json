@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Motoko actor defining the Disease type with extended fields (fertilizers, preventionTips, seasonalAdvice, severityLevel, yieldImpact, quickActions) and seeding five rice disease entries, using a migration function for data upgrades.",
+  "backend/migration.mo": "Motoko migration module that transforms OldDisease records (name, description, treatment) into NewDisease records by mapping disease names to their corresponding fertilizers, prevention tips, seasonal advice, severity levels, yield impact, and quick actions.",
+  "feature_evidence.json": "Feature evidence report mapping implemented feature IDs (fertilizer recommendations, prevention tips, seasonal advisory, severity/impact panel, etc.) to their corresponding frontend files, components, and test requirement IDs with confidence ratings.",
+  "frontend-file-summaries.txt": "JSON document providing one-line summaries of each frontend source file, describing the role of App, hooks, components, pages, and config files in the PaddyScan application.",
+  "frontend/index.css": "Tailwind CSS base file defining OKLCH-based CSS custom properties for light and dark themes, covering background, foreground, card, chart, and sidebar color tokens.",
+  "frontend/index.html": "Minimal HTML entry point for the Paddy Disease Detection app that mounts the React app into a root div and loads the main TypeScript module.",
+  "frontend/src/App.tsx": "Root React component that wraps DetectionPage inside the Layout component and provides a configured React Query client.",
+  "frontend/src/components/DiseaseResult.tsx": "React component that renders a full disease result card including a severity badge, yield impact, treatment steps, fertilizer recommendations, prevention tips checklist, seasonal advisory, and a quick actions banner, all driven by backend Disease data.",
+  "frontend/src/components/ImageUploader.tsx": "React component that renders a drag-and-drop image upload zone and an image preview panel with analyze/reset controls, accepting upload state and event handlers as props.",
+  "frontend/src/components/Layout.tsx": "Page shell component providing a consistent header (with PaddyScan branding) and footer (with caffeine.ai attribution) around child content.",
+  "frontend/src/hooks/useActor.ts": "Custom hook that creates and caches an ICP backend actor (authenticated or anonymous) using React Query, and invalidates dependent queries whenever the actor changes.",
+  "frontend/src/hooks/useImageUpload.ts": "Custom hook managing image file selection, drag-and-drop, base64 conversion, preview URL lifecycle, and reset for a single image upload flow.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context and provider, exposing login/clear functions, identity state, and login status via a React context and custom hook.",
+  "frontend/src/hooks/useQueries.ts": "Defines a `useDetectDisease` mutation hook that validates an uploaded image for plant-like green content client-side, then calls the backend actor to simulate disease detection and returns a typed result.",
+  "frontend/src/index.css": "Global stylesheet that configures Tailwind, imports Inter and Outfit fonts, defines light/dark CSS custom properties for a nature-inspired color palette, and adds fade/slide-in animation utilities.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app wrapped in QueryClientProvider and InternetIdentityProvider.",
+  "frontend/src/pages/DetectionPage.tsx": "Main detection page that handles image upload, disease analysis via mutation, and displays results or validation errors. Includes a hero banner, feature pills, step indicator, and delegates to ImageUploader and DiseaseResult components.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration defining a nature/agriculture theme with forest green and amber color tokens using OKLCH, custom fonts (Inter, Outfit), border radius, box shadows, and keyframe animations.",
+  "project_state.json": "Project state metadata describing a paddy disease detection web app, including architectural notes, known issues (e.g., detection always returning Bacterial Blight, validation message bugs), and a list of implemented features."
+}
