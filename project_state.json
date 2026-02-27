@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 13,
   "summary": "A paddy disease detection website where users upload a crop image, AI detects the disease, and the app displays the disease name along with treatment recommendations, fertilizer suggestions, and additional farmer-helpful components.",
   "architectural_notes": [
     "Use an AI/ML model or API (e.g., plant disease classification model) to analyze uploaded crop images for paddy diseases",
@@ -100,6 +100,14 @@
         "REQ-17"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-components-layout-tsx-remove-the-made-with-caffeine-ai-attribution-text-from-the-footer-the-footer-may-retain-other-content-e-g-copyright-line-but-must-not-display-any-caffeine-ai-branding-or-attribution",
+      "title": "In frontend/src/components/Layout.tsx, remove the 'Made with caffeine.ai' attribution text from the footer. The footer may retain other content (e.g., copyright line) but must not display any caffeine.ai branding or attribution.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -197,6 +205,12 @@
       "reqIds": [
         "REQ-12"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Remove the 'Made with caffeine.ai' text/attribution at the bottom of the website",
+      "reqIds": [],
       "status": "pending"
     }
   ],

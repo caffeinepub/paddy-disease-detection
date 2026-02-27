@@ -1,14 +1,9 @@
 # Specification
 
 ## Summary
-**Goal:** Extend PaddyScan's disease result view with richer agronomic data and farmer-focused UI components, including fertilizer recommendations, prevention tips, seasonal advisory, severity/impact summary, and quick action tips.
+**Goal:** Remove the "Made with caffeine.ai" attribution from the website footer.
 
 **Planned changes:**
-- Add new fields to each of the five backend disease records (`fertilizers`, `preventionTips`, `seasonalAdvice`, `severityLevel`, `yieldImpact`, `quickActions`) and expose them via existing query functions
-- Add a "Fertilizer Recommendations" section to the DiseaseResult component displaying fertilizer name and application guidance as styled cards
-- Add a "Prevention Tips" section to DiseaseResult showing disease-specific tips as checklist-style items with a leaf or checkmark icon
-- Add a "Seasonal Advisory" card to the disease result view showing seasonal farming advice for the detected disease
-- Add a "Disease Severity & Impact" panel with a color-coded severity badge (green/amber/red) and a yield impact description
-- Add a "Quick Actions" callout banner in the result view with 2–3 urgent action chips styled in amber/warning tones
+- Remove the "Made with caffeine.ai" (or "Powered by caffeine.ai") text from the footer in `frontend/src/components/Layout.tsx`
 
-**User-visible outcome:** After a disease is detected, farmers see a comprehensive result page with fertilizer guidance, prevention tips, seasonal advice, severity level, yield impact, and immediate action steps — all styled consistently with the existing agricultural theme.
+**User-visible outcome:** The footer no longer displays any caffeine.ai branding or attribution, while all other footer content remains intact.

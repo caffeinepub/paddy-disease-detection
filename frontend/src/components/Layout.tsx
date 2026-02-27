@@ -1,15 +1,11 @@
 import type { ReactNode } from 'react';
-import { Leaf, Heart } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const appId = encodeURIComponent(
-    typeof window !== 'undefined' ? window.location.hostname : 'paddy-disease-detection'
-  );
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
@@ -49,23 +45,10 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer className="bg-forest-dark text-forest-foreground/60 py-6 mt-12">
-        <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+        <div className="max-w-5xl mx-auto px-4 flex items-center justify-center text-sm">
           <div className="flex items-center gap-2">
             <Leaf className="w-4 h-4 text-amber" />
             <span>© {new Date().getFullYear()} PaddyScan — Helping farmers protect their crops</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span>Built with</span>
-            <Heart className="w-3.5 h-3.5 text-amber fill-amber" />
-            <span>using</span>
-            <a
-              href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber hover:text-amber-light transition-colors font-medium"
-            >
-              caffeine.ai
-            </a>
           </div>
         </div>
       </footer>

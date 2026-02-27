@@ -1,91 +1,34 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T06:50:49.135Z",
+  "generatedAt": "2026-02-27T14:52:00.129Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 6,
-    "implemented": 5,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-12",
-        "summary": "Extend the backend disease database entries (Blast, Bacterial Blight, Brown Spot, Sheath Blight, Tungro) to include two new data fields per disease: (1) `fertilizers`: a list of recommended fertilizer names and application guidance specific to that disease condition, and (2) `preventionTips`: a list of actionable prevention and farm management tips. Update the Disease record type and all five existing disease entries accordingly. Expose these fields through the existing getDisease and getAllDiseases query functions.",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-13",
-        "summary": "Update the DiseaseResult component and DetectionPage to render a Fertilizer Recommendations section after the treatment steps. Display each fertilizer recommendation as a styled card or list item showing the fertilizer name and application guidance, consistent with the earthy greens and amber agricultural theme.",
+        "id": "REQ-18",
+        "summary": "In frontend/src/components/Layout.tsx, remove the 'Made with caffeine.ai' attribution text from the footer. The footer may retain other content (e.g., copyright line) but must not display any caffeine.ai branding or attribution.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
+          "frontend/src/components/Layout.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ]
-      },
-      {
-        "id": "REQ-14",
-        "summary": "Add a Prevention Tips section to DiseaseResult displaying the disease-specific `preventionTips` list returned from the backend. Render each tip as a distinct item (e.g., checklist-style with a leaf or checkmark icon) to make it scannable for farmers.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ]
-      },
-      {
-        "id": "REQ-15",
-        "summary": "Add a Seasonal & Weather Advisory card to the disease result view that provides general seasonal farming advice relevant to the detected disease (e.g., ideal planting windows, irrigation adjustments, weather conditions that exacerbate the disease). This content can be derived from static, disease-specific advisory text stored in the backend disease records as a new `seasonalAdvice` field.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ]
-      },
-      {
-        "id": "REQ-16",
-        "summary": "Add a Disease Severity & Impact summary panel to the DiseaseResult component. For each disease, store and display a `severityLevel` (e.g., 'Low', 'Moderate', 'High', 'Critical') and a short `yieldImpact` description (estimated crop yield impact if untreated) in the backend. Render the severity as a color-coded badge and the yield impact as a brief text block in the results panel.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ]
-      },
-      {
-        "id": "REQ-17",
-        "summary": "Add a Quick Action Tips banner to the DetectionPage result view, presenting 2–3 immediate actions a farmer should take upon detecting the disease (e.g., 'Isolate affected plants immediately', 'Apply fungicide within 24 hours'). Store these as a `quickActions` array per disease in the backend and render them as highlighted action chips or a prominent callout box styled in amber/warning tones to convey urgency.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/DiseaseResult.tsx"
+          "frontend/src/components/Layout.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
-    "backend/migration.mo",
     "build-request.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/components/DiseaseResult.tsx",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
+    "frontend/src/components/Layout.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

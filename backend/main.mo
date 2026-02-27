@@ -1,10 +1,10 @@
 import Map "mo:core/Map";
 import Nat32 "mo:core/Nat32";
 import Runtime "mo:core/Runtime";
-import Migration "migration";
+
 
 // Specify the data migration function in with-clause
-(with migration = Migration.run)
+
 actor {
   type Disease = {
     name : Text;
